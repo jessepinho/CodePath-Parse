@@ -33,7 +33,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.textLabel.text = self.messages[indexPath.row][@"text"];
+    PFUser *user = self.messages[indexPath.row][@"user"];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", user.username, self.messages[indexPath.row][@"text"]];
     return cell;
 }
 
@@ -44,15 +45,11 @@
 - (void)refreshFeed {
     PFQuery *query = [PFQuery queryWithClassName:@"Message"];
     [query orderByDescending:@"createdAt"];
-//    [query whereKey:@"text" equalTo:@"Dan Stemkoski"];
+    [query includeKey:@"user"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            NSLog(@"Successfully retrieved %d scores.", objects.count);
             self.messages = objects;
             [self.tableView reloadData];
-            for (PFObject *object in objects) {
-                NSLog(@"%@", object.objectId);
-            }
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -63,6 +60,7 @@
 - (IBAction)onSend:(id)sender {
     PFObject *message = [PFObject objectWithClassName:@"Message"];
     message[@"text"] = self.messageField.text;
+    message[@"user"] = [PFUser currentUser];
     [message saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
             NSLog(@"sent");
