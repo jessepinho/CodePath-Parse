@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "Parse/PFUser.h"
+#import "ChatViewController.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *emailTextField;
@@ -20,7 +21,7 @@
     [PFUser logInWithUsernameInBackground:self.emailTextField.text password:self.passwordTextField.text
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
-                                            // Do stuff after successful login.
+                                            [self presentChatViewController];
                                         } else {
                                             NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
                                             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:errorString preferredStyle:UIAlertControllerStyleAlert];
@@ -39,7 +40,8 @@
     user.email = self.emailTextField.text;
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {   // Hooray! Let them use the app now.
+        if (!error) {   
+            [self presentChatViewController];
         } else {   NSString *errorString = [error userInfo][@"error"];   // Show the errorString somewhere and let the user try again.
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:errorString preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
@@ -49,6 +51,12 @@
             [self presentViewController:alert animated:YES completion:nil];
         }
     }];
+}
+
+- (void)presentChatViewController {
+    ChatViewController *vc = [[ChatViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 - (void)viewDidLoad {

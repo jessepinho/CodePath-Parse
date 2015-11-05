@@ -14,6 +14,8 @@
 		EC3065451BEC136F00C43808 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3065431BEC136F00C43808 /* Main.storyboard */; };
 		EC3065471BEC136F00C43808 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC3065461BEC136F00C43808 /* Assets.xcassets */; };
 		EC30654A1BEC136F00C43808 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC3065481BEC136F00C43808 /* LaunchScreen.storyboard */; };
+		EC3065571BEC187100C43808 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC3065551BEC187100C43808 /* ChatViewController.m */; };
+		EC3065581BEC187100C43808 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC3065561BEC187100C43808 /* ChatViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,9 @@
 		EC3065461BEC136F00C43808 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC3065491BEC136F00C43808 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC30654B1BEC136F00C43808 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC3065541BEC187100C43808 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		EC3065551BEC187100C43808 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		EC3065561BEC187100C43808 /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +96,9 @@
 				EC3065481BEC136F00C43808 /* LaunchScreen.storyboard */,
 				EC30654B1BEC136F00C43808 /* Info.plist */,
 				EC30653A1BEC136F00C43808 /* Supporting Files */,
+				EC3065541BEC187100C43808 /* ChatViewController.h */,
+				EC3065551BEC187100C43808 /* ChatViewController.m */,
+				EC3065561BEC187100C43808 /* ChatViewController.xib */,
 			);
 			path = "CodePath-Parse";
 			sourceTree = "<group>";
@@ -165,6 +173,7 @@
 			files = (
 				EC30654A1BEC136F00C43808 /* LaunchScreen.storyboard in Resources */,
 				EC3065471BEC136F00C43808 /* Assets.xcassets in Resources */,
+				EC3065581BEC187100C43808 /* ChatViewController.xib in Resources */,
 				EC3065451BEC136F00C43808 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,6 +235,7 @@
 			files = (
 				EC3065421BEC136F00C43808 /* LoginViewController.m in Sources */,
 				EC30653F1BEC136F00C43808 /* AppDelegate.m in Sources */,
+				EC3065571BEC187100C43808 /* ChatViewController.m in Sources */,
 				EC30653C1BEC136F00C43808 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
